@@ -1,0 +1,108 @@
+local GUI = require("GUI")
+local nfpager = require("umfal")("NFPager.app")
+
+local widgetFactory = {}
+
+function widgetFactory.constructFromTableProperty(tbl)
+    return widgetFactory[tbl.widgetType](tbl), tbl.widgetID
+end
+
+--[[{
+    xCoordinate        =
+    yCoordinate        =
+    widgetWidth        =
+    widgetHeight       =
+    buttonColor        =
+    textColor          =
+    pressedButtonColor =
+    pressedTextColor   =
+    buttonText         =
+} ]]
+function widgetFactory.button(tbl)
+    return GUI.button(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight, tbl.buttonColor, tbl.textColor, tbl.pressedButtonColor, tbl.pressedTextColor, tbl.buttonText)
+end
+
+--[[{
+    xCoordinate        =
+    yCoordinate        =
+    widgetWidth        =
+    widgetHeight       =
+} ]]
+function widgetFactory.container(tbl)
+    return GUI.container(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight)
+end
+
+--[[{
+    xCoordinate        =
+    yCoordinate        =
+    widgetWidth        =
+    widgetHeight       =
+    panelColor         =
+    panelTransparency  =
+} ]]
+function widgetFactory.panel(tbl)
+    tbl.panelTransparency = tbl.panelTransparency or 0
+    return GUI.panel(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight, tbl.panelColor, tbl.panelTransparency)
+end
+
+--[[{
+    xCoordinate        =
+    yCoordinate        =
+    textColor          =
+    text               =
+} ]]
+function widgetFactory.text(tbl)
+    tbl.text = tbl.text or "PLACEHOLDER"
+    return GUI.text(tbl.xCoordinate, tbl.yCoordinate, tbl.textColor, tbl.text)
+end
+
+--[[{
+    xCoordinate              =
+    yCoordinate              =
+    widgetWidth              =
+    widgetHeight             =
+    backgroundColor          =
+    directoryColor           =
+    arrowColor               =
+    backgroundSelectionColor =
+    textSelectionColor       =
+    arrowSelectionColor      =
+    disabledColor            =
+    scrollBarBackground      =
+    scrollBarForeground      =
+    filesystemShowMode       =
+    filesystemSelectionMode  =
+} ]]
+function widgetFactory.filesystemTree(tbl)
+    tbl.backgroundColor = tbl.backgroundColor or 0xCCCCCC
+    tbl.directoryColor  = tbl.directoryColor  or 0x3C3C3C
+    tbl.arrowColor      = tbl.arrowColor      or 0x3C3C3C
+    tbl.disabledColor   = tbl.disabledColor   or 0xBBBBBB
+
+    tbl.backgroundSelectionColor = tbl.backgroundSelectionColor or 0x999999
+    tbl.textSelectionColor       = tbl.textSelectionColor       or 0x3C3C3C
+    tbl.arrowSelectionColor      = tbl.arrowSelectionColor      or 0xE1E1E1
+    tbl.scrollBarBackground      = tbl.scrollBarBackground      or 0xAAAAAA
+    tbl.scrollBarForeground      = tbl.scrollBarForeground      or 0xBBBBBB
+
+    tbl.filesystemShowMode      = tbl.filesystemShowMode      or GUI.IO_MODE_BOTH
+    tbl.filesystemSelectionMode = tbl.filesystemSelectionMode or GUI.IO_MODE_BOTH
+
+    return GUI.filesystemTree(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight, tbl.backgroundColor, tbl.directoryColor, tbl.arrowColor, tbl.backgroundSelectionColor, tbl.textSelectionColor, tbl.arrowSelectionColor, tbl.disabledColor, tbl.scrollBarBackground, tbl.scrollBarForeground, tbl.filesystemShowMode, tbl.filesystemSelectionMode)
+end
+
+--[[{
+    xCoordinate              =
+    yCoordinate              =
+    widgetWidth              =
+    widgetHeight             =
+    toDrawTop                 =
+    toDrawRight              =
+    toDrawBottom               =
+    toDrawLeft               =
+} ]]
+function widgetFactory.shadow(tbl)
+    return nfpager.widgets.shadow.newInstance(tbl)
+end
+
+return widgetFactory
