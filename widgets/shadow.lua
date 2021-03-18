@@ -9,6 +9,8 @@ local TRANSPARENCY = GUI.WINDOW_SHADOW_TRANSPARENCY
 function shadow.newInstance(tbl)
     local instance = GUI.object(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight)
 
+    instance.passScreenEvents = true
+
     instance.toDrawTop = tbl.toDrawTop
     instance.toDrawRight = tbl.toDrawRight
     instance.toDrawBottom = tbl.toDrawBottom
