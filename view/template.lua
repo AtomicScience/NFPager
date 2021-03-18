@@ -24,12 +24,15 @@ function template.constructView(viewName)
 
     local rootContainer = widgetConstructor.constructFromTableProperty(tableRootContainer)
 
+    rootContainer.viewName = viewName
+    rootContainer.widgets = {}
+
     for i = 1, #tableWidgets do
         local tableWidget = tableWidgets[i]
 
         local widget, widgetID = widgetConstructor.constructFromTableProperty(tableWidget)
 
-        rootContainer[widgetID] = widget
+        rootContainer.widgets[widgetID] = widget
         rootContainer:addChild(widget)
     end
 
