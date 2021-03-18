@@ -29,9 +29,10 @@ local widgets = {
     {
         widgetType  = "text",
         widgetID    = "fileName",
-        xCoordinate = 1,
+        xCoordinate = 2,
         yCoordinate = 1,
-        textColor   = FILENAME_TEXT_COLOR
+        textColor   = FILENAME_TEXT_COLOR,
+        text        = " -> /web/server/someRandomPath/webPageItself.npf"
     },
     {
         widgetType  = "text",
