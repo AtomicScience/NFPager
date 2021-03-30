@@ -96,9 +96,9 @@ end
     yCoordinate              =
     widgetWidth              =
     widgetHeight             =
-    toDrawTop                 =
+    toDrawTop                =
     toDrawRight              =
-    toDrawBottom               =
+    toDrawBottom             =
     toDrawLeft               =
 } ]]
 function widgetFactory.shadow(tbl)
