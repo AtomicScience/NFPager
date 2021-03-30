@@ -4,7 +4,7 @@ local nfpager = require("umfal")("NFPager.app")
 
 local shadow = {}
 
-local TRANSPARENCY = GUI.WINDOW_SHADOW_TRANSPARENCY
+local TRANSPARENCY = GUI.WINDOW_SHADOW_TRANSPARENCY - 0.2
 
 function shadow.newInstance(tbl)
     local instance = GUI.object(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight)
