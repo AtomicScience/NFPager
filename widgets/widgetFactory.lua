@@ -105,4 +105,25 @@ function widgetFactory.shadow(tbl)
     return nfpager.widgets.shadow.newInstance(tbl)
 end
 
+--[[{
+    xCoordinate   =
+    yCoordinate   =
+    widgetWidth   =
+    widgetHeight  =
+    textColor     =
+    text          =
+    horizontal    =
+    vertical      =
+} ]]
+function widgetFactory.label(tbl)
+    tbl.text = tbl.text or "PLACEHOLDER"
+
+    local horizontalAlignment, verticalAlignment = nfpager.widgets.utilities.labelAlignment.getValuesFor(tbl)
+
+    local label = GUI.label(tbl.xCoordinate, tbl.yCoordinate, tbl.widgetWidth, tbl.widgetHeight, tbl.textColor, tbl.text)
+    label:setAlignment(horizontalAlignment, verticalAlignment)
+
+    return label
+end
+
 return widgetFactory
