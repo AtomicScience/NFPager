@@ -1,0 +1,56 @@
+local function map(intervalStart, intevalEnd, animationPosition)
+    local delta = math.abs(intervalStart - intevalEnd)
+
+    if intervalStart < intevalEnd then
+        return intervalStart + math.floor(delta * animationPosition)
+    else
+        return intervalStart - math.floor(delta * animationPosition)
+    end
+end
+
+
+--[[
+local background = GUI.panel(1, 1, 160, 50, 0xEEEEEE)
+local panel = nfpager.widgets.widgetFactory.panel({
+    xCoordinate        = 20,
+    yCoordinate        = 10,
+    widgetWidth        = 40,
+    widgetHeight       = 20,
+    panelColor         = 0xAA0000
+})
+
+panel.eventHandler = function(workspace, object, eventName, ...)
+    if eventName == "touch" then
+
+        local animation = object:addAnimation(
+            function(animationObject)
+                if panel.state then
+                    panel.localX = map(20, 40, animationObject.position)
+                    panel.localY = map(10, 20, animationObject.position)
+                else
+                    panel.localX = map(40, 20, animationObject.position)
+                    panel.localY = map(20, 10, animationObject.position)
+                end
+
+                workspace:draw()
+            end,
+            function (animation)
+                animation:remove()
+                panel.state = not panel.state
+            end
+        )
+
+        animation:start(0.1)
+    end
+end
+
+panel.state = true
+
+
+
+workspace:addChild(background)
+workspace:addChild(panel)
+
+workspace:draw()
+workspace:start()
+]]--
