@@ -1,21 +1,5 @@
 local nfpager = require("umfal").initAppFromRelative("NFPager.app")
-local GUI = require("GUI")
 nfpager = nfpager.view.loader.initViews()
 --------------------------------------------------------------------------------
 
--- Create new workspace
-local workspace = GUI.workspace()
-
-local footer = nfpager.views.footer:newInstance()
-local fileLoader = nfpager.views.fileSelector:newInstance()
-
-local background = GUI.panel(1, 1, 160, 50, 0xEEEEEE)
-
-workspace:addChild(background)
-workspace:addChild(fileLoader)
-workspace:addChild(footer)
-
---------------------------------------------------------------------------------
-
-workspace:draw()
-workspace:start()
+nfpager.models.interfaceModel.startWorkspace()
