@@ -24,7 +24,7 @@ function utilities.getHorizontalLabelAlignmentConstant(tbl)
         error("Failed to parse horizontal alignment value " .. tbl.vertical .. "for Label widget with ID " .. tbl.widgetID)
     end
 
-    -- If tbl.vertical is horizontal, returning the default value
+    -- If tbl.vertical field is absent, returning the default value
     return GUI.ALIGNMENT_HORIZONTAL_CENTER
 end
 
@@ -46,7 +46,7 @@ function utilities.getVerticalLabelAlignmentConstant(tbl)
         error("Failed to parse vertical alignment value " .. tbl.vertical .. "for Label widget with ID " .. tbl.widgetID)
     end
 
-    -- If tbl.vertical is absent, returning the default value
+    -- If tbl.vertical field is absent, returning the default value
     return GUI.ALIGNMENT_VERTICAL_CENTER
 end
 
