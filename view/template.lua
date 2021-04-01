@@ -62,7 +62,6 @@ function template.addControllers(view)
     end
 end
 
-
 function template.invokeConstructor(view, ...)
     local constructor = template.attemptToLoadModule(nfpager.view.viewsSource[view.viewName], "constructor")
 
