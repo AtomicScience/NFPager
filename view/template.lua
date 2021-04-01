@@ -24,6 +24,9 @@ function template:newInstance(...)
 end
 
 function template.constructView(viewName)
+    -- Since each widgets.lua must return two values, it must pack them in a table.
+    -- So, we have to unpack them here
+    -- TODO: Make the line below more straightforward
     local tableRootContainer, tableWidgets = table.unpack(nfpager.view.viewsSource[viewName].widgets)
 
     local rootContainer = widgetFactory.constructFromTableProperty(tableRootContainer)
@@ -71,6 +74,7 @@ function template.invokeConstructor(view, ...)
 end
 
 function template.addControllerToWidget(widget, controllerTable)
+    -- TODO: Add a validation of controller names
     for controllerName, controller in pairs(controllerTable) do
         widget[controllerName] = controller
     end
