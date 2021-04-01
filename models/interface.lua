@@ -3,20 +3,20 @@ local GUI = require("GUI")
 nfpager = nfpager.view.loader.initViews()
 --------------------------------------------------------------------------------
 
-local interfaceModel = {}
+local interface = {}
 
-function interfaceModel.startWorkspace()
-    local workspace = interfaceModel.drawInterace()
+function interface.startWorkspace()
+    local workspace = interface.drawInterace()
 
     workspace:draw()
     workspace:start()
 end
 
-function interfaceModel.drawInterace()
+function interface.drawInterace()
     local workspace = GUI.workspace()
 
-    local footer = nfpager.views.footer:newInstance()
-    local fileLoader = nfpager.views.fileSelector:newInstance()
+    interface.footer = nfpager.views.footer:newInstance()
+    -- interface.fileLoader = nfpager.views.fileSelector:newInstance()
 
     local background = nfpager.widgets.widgetFactory.panel({
         xCoordinate      = 1,
@@ -27,11 +27,11 @@ function interfaceModel.drawInterace()
     })
 
     workspace:addChild(background)
-    workspace:addChild(fileLoader)
-    workspace:addChild(footer)
+    -- workspace:addChild(interface.fileLoader)
+    workspace:addChild(interface.footer)
 
     return workspace
 end
 
 
-return interfaceModel
+return interface
