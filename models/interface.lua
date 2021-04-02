@@ -6,13 +6,13 @@ nfpager = nfpager.view.loader.initViews()
 local interface = {}
 
 function interface.startWorkspace()
-    local workspace = interface.drawInterace()
+    local workspace = interface.constructInterface()
 
     workspace:draw()
     workspace:start()
 end
 
-function interface.drawInterace()
+function interface.constructInterface()
     local workspace = GUI.workspace()
 
     interface.footer = nfpager.views.footer:newInstance()
