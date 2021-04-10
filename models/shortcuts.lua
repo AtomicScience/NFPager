@@ -4,6 +4,8 @@ nfpager = nfpager.view.loader.initViews()
 --------------------------------------------------------------------------------
 local shortcuts = {}
 
+shortcuts.locked = false
+
 function shortcuts.lock()
     shortcuts.locked = true
 end
