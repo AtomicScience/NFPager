@@ -10,7 +10,6 @@ fileName.eventHandler = function(workspace, object, eventName, ...)
             parentWorkspace  = workspace,
             onSubmitFunction = nfpager.models.file.attemptToLoadFile
         })
-        require("GUI").alert("HUI")
     end
 end
 
