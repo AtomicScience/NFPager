@@ -128,7 +128,7 @@ end
 
 -- TODO: properly implement this method
 function widgetFactory.addFilesystemDialog(tbl)
-    local filesystemDialog = GUI.addFilesystemDialog(tbl.parentWorkspace, true, 50, 40, "Open", "Cancel", "File name", "/")
+    local filesystemDialog = GUI.addFilesystemDialog(nfpager.models.interface.workspace, true, 50, 40, "Open", "Cancel", "File name", "/")
     filesystemDialog.onSubmit = tbl.onSubmitFunction
     filesystemDialog.onCancel = tbl.onCancelFunction
 

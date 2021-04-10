@@ -6,10 +6,10 @@ nfpager = nfpager.view.loader.initViews()
 local interface = {}
 
 function interface.startWorkspace()
-    local workspace = interface.constructInterface()
+    interface.workspace = interface.constructInterface()
 
-    workspace:draw()
-    workspace:start()
+    interface.workspace:draw()
+    interface.workspace:start()
 end
 
 function interface.constructInterface()
