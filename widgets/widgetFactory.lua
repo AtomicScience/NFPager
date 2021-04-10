@@ -126,4 +126,14 @@ function widgetFactory.label(tbl)
     return label
 end
 
+-- TODO: properly implement this method
+function widgetFactory.addFilesystemDialog(tbl)
+    local filesystemDialog = GUI.addFilesystemDialog(tbl.parentWorkspace, true, 50, 40, "Open", "Cancel", "File name", "/")
+    filesystemDialog.onSubmit = tbl.onSubmitFunction
+    filesystemDialog.onCancel = tbl.onCancelFunction
+
+    filesystemDialog:show()
+    -- filesystemDialog:addExtensionFilter(".nfp")
+end
+
 return widgetFactory

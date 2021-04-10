@@ -1,11 +1,16 @@
-local GUI = require("GUI")
 local nfpager = require("umfal")("NFPager.app")
 
 local fileName = {}
 
 fileName.eventHandler = function(workspace, object, eventName, ...)
     if eventName == "touch" then
-        GUI.alert(...)
+        nfpager.models.shortcuts.lock()
+
+        nfpager.widgets.widgetFactory.addFilesystemDialog({
+            parentWorkspace  = workspace,
+            onSubmitFunction = nfpager.models.file.attemptToLoadFile
+        })
+        require("GUI").alert("HUI")
     end
 end
 
