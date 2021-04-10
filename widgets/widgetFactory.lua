@@ -132,6 +132,20 @@ function widgetFactory.addFilesystemDialog(tbl)
     filesystemDialog.onSubmit = tbl.onSubmitFunction
     filesystemDialog.onCancel = tbl.onCancelFunction
 
+    -- That's a tricky way to get the background panel object
+    -- Refer to /Libraries/GUI.lua:2012 and :3514
+    local backgroundPanel = filesystemDialog.parent.panel
+
+    backgroundPanel.eventHandler = function(parentContainer, object, e1)
+        if e1 == "touch" then
+            -- Two lines below are just a copy of the default panel method (/Libraries/GUI.lua:3516)
+            backgroundPanel.parent:remove()
+            backgroundPanel.parent.parent:draw()
+
+            tbl.onCancelFunction()
+        end
+    end
+
     filesystemDialog:show()
     -- filesystemDialog:addExtensionFilter(".nfp")
 end
