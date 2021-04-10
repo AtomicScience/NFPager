@@ -136,6 +136,7 @@ function widgetFactory.addFilesystemDialog(tbl)
     -- Refer to /Libraries/GUI.lua:2012 and :3514
     local backgroundPanel = filesystemDialog.parent.panel
 
+    nfpager.models.shortcuts.lock()
     backgroundPanel.eventHandler = function(parentContainer, object, e1)
         if e1 == "touch" then
             -- Two lines below are just a copy of the default panel method (/Libraries/GUI.lua:3516)
@@ -145,6 +146,7 @@ function widgetFactory.addFilesystemDialog(tbl)
             tbl.onCancelFunction()
         end
     end
+    nfpager.models.shortcuts.unlock()
 
     filesystemDialog:show()
     -- filesystemDialog:addExtensionFilter(".nfp")
