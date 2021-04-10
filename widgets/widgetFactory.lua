@@ -102,7 +102,7 @@ end
     toDrawLeft               =
 } ]]
 function widgetFactory.shadow(tbl)
-    return nfpager.widgets.shadow.newInstance(tbl)
+    return nfpager.widgets.custom.shadow.newInstance(tbl)
 end
 
 --[[{
