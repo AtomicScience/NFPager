@@ -19,8 +19,8 @@ local function getAbsolutePathToPicture(pathToPage, relativePath)
     return pathUtilities.concat(pathToPage, relativePath)
 end
 
-function image.newInstance(tbl, pathToPage)
-    local pathToImage = getAbsolutePathToPicture(pathToPage, tbl[4])
+function image.newInstance(tbl, pageObject)
+    local pathToImage = getAbsolutePathToPicture(pageObject.pathToPage, tbl[4])
 
     local loadedImage, reason = imageLib.load(pathToImage)
 
